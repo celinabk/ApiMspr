@@ -17,8 +17,9 @@ urlpatterns = [
             'get': 'list',
             'post': 'create'
         })),
-    path('revendeurs/<str:pk>',RevendeursViewSet.as_view({
-                'get': 'list',
-                'post': 'create'
+    path('revendeurs/<str:pk>', RevendeursViewSet.as_view({
+                'get': 'retrieve',
+                'put': 'update',
+                'put':'destroy'
             }))
 ]

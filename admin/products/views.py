@@ -86,7 +86,7 @@ class RevendeursViewSet(viewsets.ViewSet):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
     def retrieve(self, request, pk=None):  # /api/products/<str:id>
-        revendeurs = Revendeurs.objects.get(id=pk)
+        revendeurs = Revendeurs.objects.get(id =pk )
         serializer = RevendeursSerializer(revendeurs)
         return Response(serializer.data)
 
