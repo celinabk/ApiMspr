@@ -146,3 +146,28 @@ class ProductsRevendeurs(models.Model):
     class Meta:
         managed = False
         db_table = 'products_revendeurs'
+
+
+class Customer(models.Model):
+    id = models.PositiveIntegerField( primary_key=True)
+    name = models.CharField(max_length=100)
+    username = models.CharField(max_length=100)
+    email = models.EmailField()
+    def __str__(self):
+        return str(self.id)
+
+
+
+class Order(models.Model):
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    items = models.ManyToManyField(ProductsProducts, through='OrderItem')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return  str(self.id)
+
+
+class OrderItem(models.Model):
+    product = models.ForeignKey(ProductsProducts, on_delete=models.CASCADE)
+    order = models.ForeignKey(Order, on_delete=models.CASCADE)
+    quantity = models.IntegerField(default=1)
