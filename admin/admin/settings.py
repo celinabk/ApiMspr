@@ -119,8 +119,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'mspr',
-        'USER': 'root',
-        'PASSWORD': 'binetouBS96@',
+        'USER': 'admin',
+        'PASSWORD': 'admin',
         'HOST':'localhost',
         'PORT':'3306',
     }
